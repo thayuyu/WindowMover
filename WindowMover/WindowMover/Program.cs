@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Reflection.Metadata.Ecma335;
-using System.Runtime.InteropServices;
+﻿using System.Runtime.InteropServices;
 using System.Text;
 
 class Program
@@ -107,8 +104,7 @@ class Program
                 }
 
                 Console.Write("\nMonitor number: ");
-                monIndex = Convert.ToInt32(Console.ReadLine());
-                if ( monIndex < 1 || monIndex > monitors.Count)
+                if (!int.TryParse(Console.ReadLine(), out monIndex) || monIndex < 1 || monIndex > monitors.Count)
                 {
                     Console.WriteLine("Invalid selection.");
                     Console.ReadKey();
